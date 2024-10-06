@@ -950,6 +950,26 @@
 
     /*=====  End of swiper slider activation  ======*/
     });
+    // Select all submenu items and corresponding content
+    const productSubmenuItems = document.querySelectorAll('.product-submenu-item');
+    const productSubmenuDetails = document.querySelectorAll('.product-submenu-details');
+
+    // Add event listeners for submenu hover
+    productSubmenuItems.forEach(item => {
+        item.addEventListener('mouseover', function () {
+            const targetContent = this.getAttribute('data-content');
+
+            // Remove active class from all details
+            productSubmenuDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
+
+            // Add active class to the corresponding detail
+            const activeDetail = document.getElementById(targetContent);
+            activeDetail.classList.add('active');
+        });
+    });
+
     
     /* =====================================
         Fullpage Scroll Animation   
@@ -1178,3 +1198,4 @@
     }
 
 })(jQuery);
+
