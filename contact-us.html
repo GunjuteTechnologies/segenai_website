@@ -47,6 +47,16 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("L8EqJJ_1NoPJ6qLuF");
+        })();
+    </script>
+
+
+    <script src="assets/js/mail.js"></script>
 </head>
 
 <body>
@@ -369,24 +379,25 @@
                             <div class="contact-form-wrap">
 
                                 <!-- <form id="contact-form" action="http://whizthemes.com/mail-php/jowel/mitech/php/mail.php" method="post"> -->
-                                <form id="contact-form" action="https://htmldemo.net/mitech/assets/php/mail.php" method="post">
+                                <form id="contact-form" onsubmit="SendMail(event)">
                                     <div class="contact-form">
                                         <div class="contact-input">
                                             <div class="contact-inner">
-                                                <input name="con_name" type="text" placeholder="Name *" required>
+                                                <input name="full_name" type="text" placeholder="Name *" required>
                                             </div>
                                             <div class="contact-inner">
-                                                <input name="con_email" type="email" placeholder="Email *" required>
+                                                <input name="email_id" type="email" placeholder="Email *" required>
                                             </div>
                                         </div>
-                                        <div class="contact-inner">
+                                        <!-- <div class="contact-inner">
                                             <input name="con_subject" type="text" placeholder="Subject *" required>
-                                        </div>
+                                        </div> -->
                                         <div class="contact-inner contact-message">
-                                            <textarea name="con_message" placeholder="Please describe what you need." required></textarea>
+                                            <textarea name="message" placeholder="Please describe what you need." required></textarea>
                                         </div>
                                         <div class="submit-btn mt-20">
-                                            <button class="ht-btn ht-btn-md" type="submit"><a href="mailto:sales@segenai.io">Send message</button></a>
+                                            <button name="submit" class="ht-btn ht-btn-md" type="submit">Send message</button>
+                                            <!-- <a href="mailto:sales@segenai.io"></a> -->
                                             <p class="form-messege"></p>
                                         </div>
                                     </div>

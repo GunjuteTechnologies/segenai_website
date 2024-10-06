@@ -970,7 +970,26 @@
         });
     });
 
-    
+     // Select all submenu items and corresponding content
+     const solutionsSubmenuItems = document.querySelectorAll('.solutions-submenu-item');
+     const solutionsSubmenuDetails = document.querySelectorAll('.solutions-submenu-details');
+ 
+     // Add event listeners for submenu hover
+     solutionsSubmenuItems.forEach(item => {
+         item.addEventListener('mouseover', function () {
+             const targetContent = this.getAttribute('data-content');
+ 
+             // Remove active class from all details
+             solutionsSubmenuDetails.forEach(detail => {
+                 detail.classList.remove('active');
+             });
+ 
+             // Add active class to the corresponding detail
+             const activeDetail = document.getElementById(targetContent);
+             activeDetail.classList.add('active');
+         });
+     });
+
     /* =====================================
         Fullpage Scroll Animation   
     ======================================*/
