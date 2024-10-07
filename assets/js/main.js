@@ -954,10 +954,24 @@
     const productSubmenuItems = document.querySelectorAll('.product-submenu-item');
     const productSubmenuDetails = document.querySelectorAll('.product-submenu-details');
 
+    // Set the initial active submenu item
+    const activeProductDetail = document.querySelector('.product-submenu-details.active');
+    if (activeProductDetail) {
+        const correspondingProductItem = document.querySelector(`[data-content="${activeProductDetail.id}"]`);
+        if (correspondingProductItem) {
+            correspondingProductItem.classList.add('active'); // Mark the corresponding item as active
+        }
+    }
+
     // Add event listeners for submenu hover
     productSubmenuItems.forEach(item => {
         item.addEventListener('mouseover', function () {
             const targetContent = this.getAttribute('data-content');
+
+            // Remove active class from all items
+            productSubmenuItems.forEach(subitem => {
+                subitem.classList.remove('active'); // Remove active class
+            });
 
             // Remove active class from all details
             productSubmenuDetails.forEach(detail => {
@@ -967,28 +981,50 @@
             // Add active class to the corresponding detail
             const activeDetail = document.getElementById(targetContent);
             activeDetail.classList.add('active');
+
+            // Add active class to the current submenu item to apply hover effect
+            this.classList.add('active');
         });
     });
 
-     // Select all submenu items and corresponding content
-     const solutionsSubmenuItems = document.querySelectorAll('.solutions-submenu-item');
-     const solutionsSubmenuDetails = document.querySelectorAll('.solutions-submenu-details');
- 
-     // Add event listeners for submenu hover
-     solutionsSubmenuItems.forEach(item => {
-         item.addEventListener('mouseover', function () {
-             const targetContent = this.getAttribute('data-content');
- 
-             // Remove active class from all details
-             solutionsSubmenuDetails.forEach(detail => {
-                 detail.classList.remove('active');
-             });
- 
-             // Add active class to the corresponding detail
-             const activeDetail = document.getElementById(targetContent);
-             activeDetail.classList.add('active');
-         });
-     });
+
+    // Select all submenu items and corresponding content
+    const solutionsSubmenuItems = document.querySelectorAll('.solutions-submenu-item');
+    const solutionsSubmenuDetails = document.querySelectorAll('.solutions-submenu-details');
+
+    // Set the initial active submenu item
+    const activeDetail = document.querySelector('.solutions-submenu-details.active');
+    if (activeDetail) {
+        const correspondingItem = document.querySelector(`[data-content="${activeDetail.id}"]`);
+        if (correspondingItem) {
+            correspondingItem.classList.add('active'); // Mark the corresponding item as active
+        }
+    }
+
+    // Add event listeners for submenu hover
+    solutionsSubmenuItems.forEach(item => {
+        item.addEventListener('mouseover', function () {
+            const targetContent = this.getAttribute('data-content');
+
+            // Remove active class from all items
+            solutionsSubmenuItems.forEach(subitem => {
+                subitem.classList.remove('active'); // Remove active class
+            });
+
+            // Remove active class from all details
+            solutionsSubmenuDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
+
+            // Add active class to the corresponding detail
+            const activeDetail = document.getElementById(targetContent);
+            activeDetail.classList.add('active');
+
+            // Add active class to the current submenu item to apply hover effect
+            this.classList.add('active');
+        });
+    });
+
 
     /* =====================================
         Fullpage Scroll Animation   

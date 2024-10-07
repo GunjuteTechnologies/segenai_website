@@ -14373,6 +14373,12 @@ blockquote {
     .product-submenu-details.active {
         display: block;
     }
+.product-submenu-item.active {
+    background-color: #086AD8; /* Active background color */
+    color: white; /* Active text color */
+    border-radius: 10px; /* Ensure same border-radius as hover */
+    transform: scale(1.05); /* Scale effect like hover */
+}
 
 /* Solutions Menu Dropdown */
 .solutions-submenu-details li {
@@ -14449,3 +14455,13 @@ blockquote {
   .solutions-submenu-details.active {
       display: block;
   }
+.col-6 ul li {
+    margin-bottom: 1rem; /* Adjust the value as needed for spacing */
+}
+.solutions-submenu-item.active {
+    background-color: #086AD8; /* Active background color */
+    color: white; /* Active text color */
+    border-radius: 10px; /* Ensure same border-radius as hover */
+    transform: scale(1.05); /* Scale effect like hover */
+}
+
