@@ -30,6 +30,22 @@
 
     });
     /*----------  Scroll to top  ----------*/
+    function reorderColumns() {
+        const row = document.getElementById("row");
+        const postInfo = document.getElementById("post-info");
+        const postFeature = document.getElementById("post-feature");
+
+        if (window.innerWidth < 768) {
+            row.insertBefore(postFeature, postInfo); // Swap the columns on small screens
+        } else {
+            row.insertBefore(postInfo, postFeature); // Reset to original order on larger screens
+        }
+    }
+
+    // Call the function on page load and window resize
+    window.addEventListener("resize", reorderColumns);
+    window.addEventListener("load", reorderColumns);
+
     function scrollToTop() {
         var $scrollUp = $('#scroll-top'),
             $lastScrollTop = 0,
@@ -1136,22 +1152,22 @@
         "circle_bg_color": "#eeeeee",
         "time": {
             "Days": {
-                "text": "Days",
+                "heading": "Days",
                 "color": "#086AD8",
                 "show": true
             },
             "Hours": {
-                "text": "Hours",
+                "heading": "Hours",
                 "color": "#086AD8",
                 "show": true
             },
             "Minutes": {
-                "text": "Minutes",
+                "heading": "Minutes",
                 "color": "#086AD8",
                 "show": true
             },
             "Seconds": {
-                "text": "Seconds",
+                "heading": "Seconds",
                 "color": "#086AD8",
                 "show": true
             }
